@@ -52,21 +52,21 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				}
+        // Additional colors from PRD
+        surface: '#F8F8F8', // PRD: colorPalette.surface
+        accentSecondary: '#0056B3', // PRD: colorPalette.accentSecondary
+        success: '#28A745', // PRD: colorPalette.success
+        // primaryText is covered by foreground
+        // secondaryText is covered by secondary.foreground or muted.foreground
+        // error is covered by destructive
 			},
+			fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'], // PRD: typography.primaryFont
+      },
 			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				lg: 'var(--radius)', // Corresponds to 0.5rem (PRD: buttons: rounded-lg)
+				md: 'calc(var(--radius) - 2px)', // Corresponds to 0.375rem (PRD: default: rounded-md)
+				sm: 'calc(var(--radius) - 4px)' // Corresponds to 0.25rem
 			},
 			keyframes: {
 				'accordion-down': {
@@ -92,5 +92,5 @@ export default {
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [require("tailwindcss-animate")]
 } satisfies Config;
